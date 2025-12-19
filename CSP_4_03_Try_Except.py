@@ -4,20 +4,42 @@
 
 def sum(arr : list) -> int:
     """
-    Modify the function such that it returns the sum of all numebrs within the given list.
+    Modify the function such that it returns the sum of all numbers within the given list.
     :param arr:
     :return:
     """
-    pass
+    sum = 0
+
+    for i in range(len(arr)):
+        try:
+            sum = sum +arr[i]
+        except:
+            print("not number")
+    return(sum)
 
 def cleanData(rawData : list) ->list:
     """
     modify the function such that it takes in a list as an argument will return a new list that
-     contains only the valeus that can be typecast to a float.
+     contains only the values that can be typecast to a float.
     :param rawData:
     :return:
     """
-    pass
+
+    n = 0
+    answerList = []
+    length = len(rawData)
+    while n < length:
+        try:
+            float(rawData[n])
+            answerList.append(float(rawData[n]))
+        except:
+            print("Cannot be a float")
+        n += 1
+    print(answerList)
+    return(answerList)
+
+
+
 def unreliableCalculator(divisors : list) -> list:
     """
     Modify the function such that it takes in a list as an argument and returns a new list where each
@@ -27,7 +49,20 @@ def unreliableCalculator(divisors : list) -> list:
     :param divisors:
     :return:
     """
-    pass
+    n = 0
+    answerList = []
+    length = len(divisors)
+    while n < length:
+        try:
+            addition = 100 / divisors[n]
+        except TypeError:
+            addition = "TypeError"
+        except ZeroDivisionError:
+            addition = "ZeroDivisionError"
+        n += 1
+        answerList.append(addition)
+    print(answerList)
+    return(answerList)
 
 
 def upperAll(arr : list) -> None:
@@ -38,10 +73,18 @@ def upperAll(arr : list) -> None:
     :param arr:
     :return:
     """
-    x = "hello"
-    print(x)
-    x = x.upper()
-    print(x)
+    n = 0
+    length = len(arr)
+    while n < length:
+        try:
+            answer = arr[n].upper()
+        except:
+            answer = arr[n]
+        print(answer)
+        arr.pop(n)
+        arr.insert(n,answer)
+        n += 1
+    print(arr)
 
 
 def firstItems(arr : list) -> list:
@@ -54,5 +97,17 @@ def firstItems(arr : list) -> list:
     :param arr:
     :return:
     """
-    pass
+    n = 0
+    length = len(arr)
+    answerList = []
+    while n < length:
+        try:
+            x = arr[n]
+            answer = x[0]
+            answerList.append(answer)
+        except:
+            answerList.append(arr[n])
+        n += 1
+    print(answerList)
+    return(answerList)
 
